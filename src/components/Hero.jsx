@@ -112,17 +112,17 @@ const Hero = () => {
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center md:items-end text-center md:text-right">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-24 md:pt-32 flex flex-col items-center md:items-end text-center md:text-right">
         <h1 className="flex flex-col items-center md:items-end">
           <span 
             ref={title1Ref} 
-            className="text-white font-body font-bold text-base md:text-xl lg:text-2xl uppercase tracking-[0.2em] mb-2 opacity-100 drop-shadow-md"
+            className="text-white font-body font-bold text-xs md:text-sm lg:text-base uppercase tracking-[0.3em] mb-4 opacity-100 drop-shadow-md"
           >
             CLUB DE PÁDEL AGUASCALIENTES
           </span>
           <span 
             ref={title2Ref} 
-            className="text-padel font-display font-black text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tighter"
+            className="text-padel font-display font-black text-4xl md:text-6xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tighter"
           >
             PÁDEL SIN<br/>LÍMITES
           </span>

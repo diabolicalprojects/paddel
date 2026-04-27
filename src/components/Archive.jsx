@@ -59,14 +59,14 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
         <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent opacity-60 md:opacity-0"></div>
 
         {/* Content Grid */}
-        <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-center justify-end md:justify-start p-6 md:p-20">
-          <div ref={contentRef} className="max-w-2xl w-full">
+        <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-center justify-end md:justify-start p-6 md:px-20 md:pb-20 md:pt-32">
+          <div ref={contentRef} className="w-full md:w-2/3 lg:w-1/2">
             <div className="flex items-center gap-3 mb-4 md:mb-6">
               <span className="w-8 md:w-12 h-[2px] bg-padel"></span>
-              <p className="text-padel font-emphasis uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-xs md:text-base">{subtitle}</p>
+              <p className="text-padel font-emphasis uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-xs md:text-sm">{subtitle}</p>
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-display font-black uppercase text-white tracking-tighter leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 drop-shadow-2xl">
+            <h2 className="text-4xl md:text-4xl lg:text-5xl font-display font-black uppercase text-white tracking-tighter leading-[0.9] mb-6 md:mb-8 drop-shadow-2xl">
               {title}
             </h2>
             
@@ -84,8 +84,8 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
         </div>
         
         {/* Decorative Index Number */}
-        <div className="absolute top-6 right-6 md:top-12 md:right-12 pointer-events-none opacity-10">
-          <span className="font-display font-black text-7xl md:text-9xl lg:text-[12rem] text-white">0{index + 1}</span>
+        <div className="absolute top-6 right-6 md:top-12 md:right-12 pointer-events-none opacity-5">
+          <span className="font-display font-black text-6xl md:text-8xl lg:text-9xl text-white">0{index + 1}</span>
         </div>
       </div>
     </div>
