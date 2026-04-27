@@ -4,16 +4,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ArchiveCard = ({ title, subtitle, image, index, total, children }) => {
+const ArchiveCard = ({ title, subtitle, description, image, index, total, children }) => {
   const cardRef = useRef(null);
+  const contentRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Sticky effect with slight scale/blur on scroll out
       if (index < total - 1) {
         gsap.to(cardRef.current, {
-          scale: 0.95,
-          opacity: 0.4,
-          filter: 'blur(10px)',
+          scale: 0.9,
+          opacity: 0,
+          y: -100,
           scrollTrigger: {
             trigger: cardRef.current,
             start: "top top",
@@ -23,14 +25,19 @@ const ArchiveCard = ({ title, subtitle, image, index, total, children }) => {
             pinSpacing: false
           }
         });
-      } else {
-        ScrollTrigger.create({
-          trigger: cardRef.current,
-          start: "top top",
-          pin: true,
-          pinSpacing: true
-        });
       }
+
+      // Parallax for the content inside the card
+      gsap.from(contentRef.current, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top center",
+        }
+      });
     }, cardRef);
 
     return () => ctx.revert();
@@ -39,34 +46,46 @@ const ArchiveCard = ({ title, subtitle, image, index, total, children }) => {
   return (
     <div 
       ref={cardRef} 
-      className="h-[100dvh] w-full sticky top-0 flex items-center justify-center p-6 md:p-12"
+      className="h-[100dvh] w-full sticky top-0 flex items-center justify-center p-4 md:p-8 overflow-hidden"
       style={{ zIndex: index }}
     >
-      <div className="relative w-full h-full max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-[rgba(255,255,255,0.1)]">
-        {/* Background Image */}
+      <div className="relative w-full h-full max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.05)] bg-carbon">
+        {/* Background Image with stronger overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-110"
           style={{ backgroundImage: `url(${image})` }}
         ></div>
-        <div className="absolute inset-0 bg-carbon bg-opacity-60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-carbon via-carbon/40 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
 
-        {/* Content */}
-        <div className="absolute inset-0 p-8 md:p-16 flex flex-col justify-end">
-          <div className="flex justify-between items-end w-full">
-            <div>
-              <p className="text-padel font-body uppercase tracking-widest font-bold mb-2">{subtitle}</p>
-              <h2 className="text-5xl md:text-8xl font-display font-black uppercase text-white tracking-tighter drop-shadow-lg">{title}</h2>
+        {/* Content Grid */}
+        <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-end md:items-center p-8 md:p-20">
+          <div ref={contentRef} className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-12 h-[2px] bg-padel"></span>
+              <p className="text-padel font-emphasis uppercase tracking-[0.3em] font-bold text-sm md:text-base">{subtitle}</p>
             </div>
-            <div className="hidden md:block">
-              {children}
+            
+            <h2 className="text-6xl md:text-[10rem] font-display font-black uppercase text-white tracking-tighter leading-[0.8] mb-8 drop-shadow-2xl">
+              {title}
+            </h2>
+            
+            <div className="glass-panel p-8 md:p-10 rounded-2xl border-l-4 border-l-padel max-w-xl">
+              <p className="text-gray-200 font-body text-lg md:text-xl leading-relaxed mb-6 italic">
+                "{description}"
+              </p>
+              
+              <div className="flex items-center gap-6">
+                {children}
+                <span className="text-gray-500 font-mono text-sm tracking-widest uppercase">Sistema de Alto Rendimiento</span>
+              </div>
             </div>
           </div>
         </div>
         
-        {/* Mobile Micro-element */}
-        <div className="absolute top-8 right-8 md:hidden">
-          {children}
+        {/* Decorative Index Number */}
+        <div className="absolute top-12 right-12 md:top-20 md:right-20 pointer-events-none opacity-10">
+          <span className="font-display font-black text-9xl md:text-[15rem] text-white">0{index + 1}</span>
         </div>
       </div>
     </div>
@@ -113,48 +132,36 @@ const LEDFlash = () => {
   );
 };
 
-const Stopwatch = () => {
-  const [time, setTime] = React.useState(0);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(prev => (prev + 1) % 6000); // 60 seconds * 100
-    }, 10);
-    return () => clearInterval(interval);
-  }, []);
-
-  const formatTime = (ms) => {
-    const s = Math.floor(ms / 100);
-    const msRemainder = ms % 100;
-    return `${s.toString().padStart(2, '0')}:${msRemainder.toString().padStart(2, '0')}`;
-  };
-
-  return (
-    <div className="font-mono text-2xl md:text-4xl text-padel font-bold tracking-widest drop-shadow-[0_0_10px_rgba(163,230,53,0.5)] bg-carbon px-4 py-2 rounded-[0.5rem] border border-[rgba(163,230,53,0.3)]">
-      {formatTime(time)}
-    </div>
-  );
-};
+const TrophyIcon = () => (
+  <div className="w-16 h-16 rounded-full border-2 border-padel flex items-center justify-center bg-[rgba(163,230,53,0.1)] backdrop-blur-sm shadow-[0_0_20px_rgba(163,230,53,0.2)]">
+    <svg className="w-8 h-8 text-padel" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+    </svg>
+  </div>
+);
 
 const Archive = () => {
   const sections = [
     {
-      title: "Canchas",
-      subtitle: "01. Instalaciones",
-      image: "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=2070&auto=format&fit=crop",
+      title: "Clase Mundial",
+      subtitle: "01. Canchas",
+      description: "12 pistas panorámicas listas para la acción. El escenario perfecto para quienes buscan calidad, velocidad y la mejor atmósfera de la ciudad.",
+      image: "/643516107_17954418798080688_5040464691383007529_n.jpg",
       element: <BouncingBall />
     },
     {
-      title: "Academia",
+      title: "Academia M3",
       subtitle: "02. Formación",
-      image: "https://images.unsplash.com/photo-1622227922682-58e1363e52f1?q=80&w=2070&auto=format&fit=crop",
+      description: "¿Vas empezando o quieres dominar el ranking? Nuestra Academia M3 tiene el método para que juegues con confianza desde el primer día. Técnica, estrategia y resultados reales.",
+      image: "/side-view-woman-holding-palette.jpg",
       element: <LEDFlash />
     },
     {
-      title: "Eventos",
+      title: "Estilo de Vida",
       subtitle: "03. Comunidad",
-      image: "https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=2070&auto=format&fit=crop",
-      element: <Stopwatch />
+      description: "Torneos, convivencias y las mejores \"retas\" de Aguascalientes. Aquí vienes por el deporte y te quedas por la comunidad. El plan ya está armado.",
+      image: "/657683641_17958842208080688_421451555995903500_n.jpg",
+      element: <TrophyIcon />
     }
   ];
 
@@ -167,6 +174,7 @@ const Archive = () => {
           total={sections.length}
           title={section.title}
           subtitle={section.subtitle}
+          description={section.description}
           image={section.image}
         >
           {section.element}

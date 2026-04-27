@@ -1,0 +1,69 @@
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const SocialGallery = () => {
+  const containerRef = useRef(null);
+  const imagesRef = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      imagesRef.current.forEach((img, i) => {
+        gsap.fromTo(img, 
+          { y: i % 2 === 0 ? 100 : -100 },
+          { 
+            y: i % 2 === 0 ? -100 : 100,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true
+            }
+          }
+        );
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
+  const images = [
+    "/654943453_17957073909080688_2531322485578528401_n.jpg",
+    "/655292297_17957401242080688_1653857506797928154_n.jpg",
+    "/658424315_17958006810080688_4634116456805855768_n.jpg"
+  ];
+
+  return (
+    <section ref={containerRef} className="relative w-full py-32 bg-carbon overflow-hidden">
+      <div className="max-w-[1800px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {images.map((src, idx) => (
+            <div 
+              key={idx}
+              ref={el => imagesRef.current[idx] = el}
+              className="relative aspect-[3/4] md:aspect-[4/5] overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.1)] shadow-2xl"
+            >
+              <img 
+                src={src} 
+                alt={`Club Life ${idx + 1}`} 
+                className="absolute inset-0 w-full h-full object-cover scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-carbon/40 to-transparent"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Decorative Text background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-0 opacity-10">
+        <span className="font-display font-black text-[15vw] uppercase text-white whitespace-nowrap tracking-tighter">
+          ESTILO DE VIDA • ESTILO DE VIDA
+        </span>
+      </div>
+    </section>
+  );
+};
+
+export default SocialGallery;

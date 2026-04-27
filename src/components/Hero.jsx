@@ -9,30 +9,74 @@ const Hero = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Background darkens a bit on mount
-      gsap.to(overlayRef.current, { opacity: 0.6, duration: 1.5, ease: "power2.out" });
+      // Background darkens a bit on mount and zooms
+      gsap.to(overlayRef.current, { opacity: 0.7, duration: 1.5, ease: "power2.out" });
+      gsap.from(".hero-bg", { scale: 1.1, duration: 2, ease: "power2.out" });
 
       // Elastic slide up for titles
       gsap.from([title1Ref.current, title2Ref.current], {
-        y: 100,
+        y: 60,
         opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
+        duration: 0.8,
+        stagger: 0.1,
         ease: "back.out(1.7)",
-        delay: 0.2
+        delay: 0.1
       });
+      
+      // Animate Description
+      gsap.fromTo(".hero-description", 
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.6, 
+          ease: "power2.out", 
+          delay: 0.4 
+        }
+      );
+
+      // Animate CTAs
+      gsap.fromTo(".ctas-container a", 
+        { opacity: 0, y: 20 },
+        { 
+          opacity: 1, 
+          y: 0, 
+          duration: 0.6, 
+          stagger: 0.1, 
+          ease: "power2.out", 
+          delay: 0.6 
+        }
+      );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    gsap.to(window, {
+      duration: 1.2,
+      scrollTo: {
+        y: id,
+        autoKill: true
+      },
+      ease: "power4.inOut"
+    });
+  };
+
   return (
-    <section ref={containerRef} className="relative w-full h-[100dvh] flex items-center justify-end overflow-hidden pb-20 md:pb-0">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1622227922682-58e1363e52f1?q=80&w=2070&auto=format&fit=crop")' }}
-      ></div>
+    <section ref={containerRef} className="relative w-full h-[100dvh] flex items-center justify-end overflow-hidden md:pb-0">
+      {/* Background Video */}
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        poster="/tennis-paddles-balls-arrangement.jpg"
+        className="absolute inset-0 w-full h-full object-cover hero-bg brightness-[0.4] contrast-[0.9]"
+      >
+        <source src="/AQO0WbO6fHxVxbs0GOtgfr-lhVH87ihUABhAcl_0OjT-_bI4NLH84Bnp-IFghoBlAAvnsGRgMIBu8aurVVq3HpaPxdu8wnVfv22NRJo.mp4" type="video/mp4" />
+      </video>
       
       {/* Gradient Overlay */}
       <div 
@@ -47,21 +91,37 @@ const Hero = () => {
             ref={title1Ref} 
             className="text-white font-body font-bold text-2xl md:text-4xl uppercase tracking-tighter mb-2 opacity-100 drop-shadow-md"
           >
-            AGUASCALIENTES, AGS
+            CLUB DE PÁDEL AGUASCALIENTES
           </span>
           <span 
             ref={title2Ref} 
-            className="text-padel font-display font-black text-[5rem] md:text-8xl lg:text-[10rem] leading-[0.85] tracking-tighter"
+            className="text-padel font-display font-black text-[4rem] md:text-7xl lg:text-[8rem] leading-[1] tracking-tighter"
           >
-            MÁS QUE<br/>PÁDEL
+            PÁDEL SIN<br/>LÍMITES
           </span>
         </h1>
         
-        <div className="mt-12 md:mt-16 flex items-center gap-4">
-          <div className="w-2 h-12 bg-padel"></div>
-          <p className="text-gray-200 font-body text-base uppercase font-bold tracking-widest max-w-[250px] text-left">
-            El alto rendimiento deportivo se encuentra con un club social vibrante.
-          </p>
+        <p className="mt-6 text-gray-200 font-body text-lg md:text-xl uppercase tracking-widest max-w-2xl hero-description">
+          Olvida la rutina. Únete al club donde el mejor nivel de Aguascalientes se encuentra con el ambiente que estabas buscando. Tu próxima reta empieza aquí.
+        </p>
+
+        {/* CTAs */}
+        <div className="mt-10 flex flex-wrap justify-end gap-4 ctas-container">
+          <a 
+            href="#planes" 
+            onClick={(e) => scrollToSection(e, '#planes')}
+            className="px-8 py-4 bg-transparent border border-white/20 text-white font-emphasis text-lg uppercase tracking-widest hover:bg-white hover:text-carbon transition-all duration-300 rounded-sm"
+          >
+            Conoce los Planes
+          </a>
+          <a 
+            href="https://wa.me/524494361995" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-padel text-carbon font-emphasis text-lg uppercase tracking-widest hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] rounded-sm"
+          >
+            Reserva tu Cancha
+          </a>
         </div>
       </div>
     </section>

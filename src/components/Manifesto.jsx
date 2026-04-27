@@ -55,7 +55,7 @@ const Manifesto = () => {
       <div 
         ref={bgRef}
         className="absolute inset-[-20%] w-[140%] h-[140%] bg-cover bg-center opacity-30 mix-blend-overlay"
-        style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1554068865-24cecd4e34d8?q=80&w=2070&auto=format&fit=crop")' }}
+        style={{ backgroundImage: 'url("/high-angle-tired-woman-laying-ground.jpg")' }}
       ></div>
       
       {/* Noise Texture Override for this section */}
@@ -66,14 +66,14 @@ const Manifesto = () => {
           ref={text1Ref}
           className="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase text-white tracking-tighter leading-none"
         >
-          Lo normal es jugar <br/><span className="text-gray-400">de vez en cuando.</span>
+          TU NUEVA SOLUCIÓN DE <br/><span className="text-gray-400">EMERGENCIA CONTRA EL ESTRÉS.</span>
         </h2>
         
         <h2 
           ref={text2Ref}
           className="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase text-padel tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(163,230,53,0.3)]"
         >
-          Para nosotros, el pádel <br/>es tu happy hour.
+          EL PLAN PERFECTO <br/>ESTÁ EN LA CANCHA.
         </h2>
       </div>
     </section>
