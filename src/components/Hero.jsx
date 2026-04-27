@@ -6,6 +6,7 @@ const Hero = () => {
   const title1Ref = useRef(null);
   const title2Ref = useRef(null);
   const overlayRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,6 +35,13 @@ const Hero = () => {
           delay: 0.4 
         }
       );
+      
+      // Ensure video plays
+      if (videoRef.current) {
+        videoRef.current.play().catch(error => {
+          console.log("Autoplay was prevented:", error);
+        });
+      }
 
       // Animate CTAs
       gsap.fromTo(".ctas-container a", 
@@ -68,6 +76,7 @@ const Hero = () => {
     <section ref={containerRef} className="relative w-full h-[100dvh] flex items-center justify-end overflow-hidden md:pb-0">
       {/* Background Video */}
       <video 
+        ref={videoRef}
         autoPlay 
         muted 
         loop 
@@ -75,7 +84,7 @@ const Hero = () => {
         poster="/tennis-paddles-balls-arrangement.jpg"
         className="absolute inset-0 w-full h-full object-cover hero-bg brightness-[0.4] contrast-[0.9]"
       >
-        <source src="/AQO0WbO6fHxVxbs0GOtgfr-lhVH87ihUABhAcl_0OjT-_bI4NLH84Bnp-IFghoBlAAvnsGRgMIBu8aurVVq3HpaPxdu8wnVfv22NRJo.mp4" type="video/mp4" />
+        <source src="/hero-padel-main.mp4" type="video/mp4" />
       </video>
       
       {/* Gradient Overlay */}
