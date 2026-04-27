@@ -108,10 +108,10 @@ const Leagues = () => {
     <section ref={containerRef} id="ligas" className="py-32 px-6 bg-carbon relative z-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col mb-20">
-          <h2 className="text-white font-display text-4xl md:text-7xl lg:text-8xl font-black uppercase tracking-tighter leading-none mb-6">
+          <h2 className="text-white font-display text-4xl md:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-none mb-6">
             ELIGE <br/><span className="text-padel">TU LIGA</span>
           </h2>
-          <p className="text-gray-400 font-body text-xl max-w-2xl">
+          <p className="text-gray-400 font-body text-lg md:text-xl max-w-2xl">
             Súmate al circuito más activo de Aguascalientes. Categorías diseñadas para cada etapa de tu evolución deportiva.
           </p>
         </div>

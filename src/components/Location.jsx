@@ -34,7 +34,7 @@ const Location = () => {
             <span className="text-padel font-bold text-xs uppercase tracking-widest">Localización Estratégica</span>
           </div>
           
-          <h2 className="text-white font-display text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter leading-none">
+          <h2 className="text-white font-display text-3xl md:text-5xl lg:text-6xl font-black mb-8 uppercase tracking-tighter leading-none">
             UBICACIÓN EN EL <br/><span className="text-padel">NORTE DE AGS</span>
           </h2>
           

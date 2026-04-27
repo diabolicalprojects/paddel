@@ -55,8 +55,8 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
           className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-110"
           style={{ backgroundImage: `url(${image})` }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-carbon via-carbon/60 md:via-carbon/40 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-carbon via-carbon/80 md:via-carbon/60 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent opacity-60 md:opacity-0"></div>
 
         {/* Content Grid */}
         <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-center justify-end md:justify-start p-6 md:p-20">
@@ -66,7 +66,7 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
               <p className="text-padel font-emphasis uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-xs md:text-base">{subtitle}</p>
             </div>
             
-            <h2 className="text-4xl md:text-6xl lg:text-[10rem] font-display font-black uppercase text-white tracking-tighter leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 drop-shadow-2xl">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-display font-black uppercase text-white tracking-tighter leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 drop-shadow-2xl">
               {title}
             </h2>
             
@@ -84,8 +84,8 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
         </div>
         
         {/* Decorative Index Number */}
-        <div className="absolute top-6 right-6 md:top-20 md:right-20 pointer-events-none opacity-10">
-          <span className="font-display font-black text-7xl md:text-[15rem] text-white">0{index + 1}</span>
+        <div className="absolute top-6 right-6 md:top-12 md:right-12 pointer-events-none opacity-10">
+          <span className="font-display font-black text-7xl md:text-9xl lg:text-[12rem] text-white">0{index + 1}</span>
         </div>
       </div>
     </div>

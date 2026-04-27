@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = React.useState(false);
   const containerRef = useRef(null);
   const title1Ref = useRef(null);
   const title2Ref = useRef(null);
@@ -9,6 +10,12 @@ const Hero = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const ctx = gsap.context(() => {
       // Background darkens a bit on mount and zooms
       gsap.to(overlayRef.current, { opacity: 0.7, duration: 1.5, ease: "power2.out" });
@@ -57,7 +64,10 @@ const Hero = () => {
       );
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
   const scrollToSection = (e, id) => {
@@ -74,18 +84,26 @@ const Hero = () => {
 
   return (
     <section ref={containerRef} className="relative w-full h-[100dvh] flex items-center justify-end overflow-hidden md:pb-0">
-      {/* Background Video */}
-      <video 
-        ref={videoRef}
-        autoPlay 
-        muted 
-        loop 
-        playsInline
-        poster="/tennis-paddles-balls-arrangement.jpg"
-        className="absolute inset-0 w-full h-full object-cover hero-bg brightness-[0.4] contrast-[0.9]"
-      >
-        <source src="/hero-padel-main.mp4" type="video/mp4" />
-      </video>
+      {/* Background - Video on Desktop, Static Image on Mobile */}
+      {!isMobile ? (
+        <video 
+          ref={videoRef}
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          preload="metadata"
+          poster="/tennis-paddles-balls-arrangement.jpg"
+          className="absolute inset-0 w-full h-full object-cover hero-bg brightness-[0.4] contrast-[0.9]"
+        >
+          <source src="/hero-padel-main.mp4" type="video/mp4" />
+        </video>
+      ) : (
+        <div 
+          className="absolute inset-0 w-full h-full bg-cover bg-center hero-bg brightness-[0.4] contrast-[0.9]"
+          style={{ backgroundImage: 'url("/tennis-paddles-balls-arrangement.jpg")' }}
+        ></div>
+      )}
       
       {/* Gradient Overlay */}
       <div 
@@ -98,20 +116,20 @@ const Hero = () => {
         <h1 className="flex flex-col items-center md:items-end">
           <span 
             ref={title1Ref} 
-            className="text-white font-body font-bold text-lg md:text-2xl lg:text-4xl uppercase tracking-widest md:tracking-tighter mb-2 opacity-100 drop-shadow-md"
+            className="text-white font-body font-bold text-base md:text-xl lg:text-2xl uppercase tracking-[0.2em] mb-2 opacity-100 drop-shadow-md"
           >
             CLUB DE PÁDEL AGUASCALIENTES
           </span>
           <span 
             ref={title2Ref} 
-            className="text-padel font-display font-black text-5xl md:text-7xl lg:text-[8rem] leading-[0.9] md:leading-[1] tracking-tighter"
+            className="text-padel font-display font-black text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tighter"
           >
             PÁDEL SIN<br/>LÍMITES
           </span>
         </h1>
         
-        <p className="mt-6 text-gray-200 font-body text-base md:text-lg lg:text-xl uppercase tracking-widest max-w-2xl hero-description">
-          Olvida la rutina. Únete al club donde el mejor nivel de Aguascalientes se encuentra con el ambiente que estabas buscando. Tu próxima reta empieza aquí.
+        <p className="mt-6 text-gray-200 font-body text-sm md:text-base lg:text-lg uppercase tracking-widest max-w-xl hero-description">
+          Olvida la rutina. Únete al club donde el mejor nivel de Aguascalientes se encuentra con el ambiente que estabas buscando.
         </p>
 
         {/* CTAs */}
