@@ -8,7 +8,7 @@ const WhatsAppButton = () => {
       href={`https://api.whatsapp.com/send?phone=524494361995&text=${encodeURIComponent(msg)}`} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] transition-all duration-300 group"
+      className="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-[100] w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_15px_40px_rgba(37,211,102,0.6)] transition-all duration-300 group"
       aria-label="Contactar por WhatsApp"
     >
       {/* Defined Official WhatsApp Icon */}

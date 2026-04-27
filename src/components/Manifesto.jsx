@@ -50,7 +50,7 @@ const Manifesto = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full py-40 overflow-hidden bg-deepblue flex items-center justify-center">
+    <section ref={containerRef} className="relative w-full py-24 md:py-40 overflow-hidden bg-deepblue flex items-center justify-center">
       {/* Parallax Background */}
       <div 
         ref={bgRef}
@@ -61,17 +61,17 @@ const Manifesto = () => {
       {/* Noise Texture Override for this section */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPHBhdGggZD0iTTAgMEw4IDhaTTAgOEw4IDBaIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+')] opacity-20 pointer-events-none mix-blend-soft-light"></div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center flex flex-col gap-8">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center flex flex-col gap-6 md:gap-8">
         <h2 
           ref={text1Ref}
-          className="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase text-white tracking-tighter leading-none"
+          className="font-display font-black text-3xl md:text-6xl lg:text-7xl uppercase text-white tracking-tighter leading-none"
         >
           TU NUEVA SOLUCIÓN DE <br/><span className="text-gray-400">EMERGENCIA CONTRA EL ESTRÉS.</span>
         </h2>
         
         <h2 
           ref={text2Ref}
-          className="font-display font-black text-4xl md:text-6xl lg:text-7xl uppercase text-padel tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(163,230,53,0.3)]"
+          className="font-display font-black text-3xl md:text-6xl lg:text-7xl uppercase text-padel tracking-tighter leading-none drop-shadow-[0_0_20px_rgba(163,230,53,0.3)]"
         >
           EL PLAN PERFECTO <br/>ESTÁ EN LA CANCHA.
         </h2>

@@ -65,10 +65,10 @@ const Features = () => {
   ];
 
   return (
-    <section ref={containerRef} id="instalaciones" className="py-32 px-6 max-w-6xl mx-auto relative z-20">
-      <div className="mb-20">
-        <h2 className="text-padel font-display text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter leading-none">INGENIERÍA <br/>DEPORTIVA</h2>
-        <p className="text-gray-400 max-w-3xl font-body text-xl font-medium leading-relaxed">
+    <section ref={containerRef} id="instalaciones" className="py-24 md:py-32 px-6 max-w-6xl mx-auto relative z-20">
+      <div className="mb-12 md:mb-20">
+        <h2 className="text-padel font-display text-3xl md:text-6xl font-black mb-6 uppercase tracking-tighter leading-[0.9]">INGENIERÍA <br/>DEPORTIVA</h2>
+        <p className="text-gray-400 max-w-3xl font-body text-lg md:text-xl font-medium leading-relaxed">
           No solo construimos un club, diseñamos un ecosistema de <span className="text-white">alto rendimiento</span>. Cada elemento de nuestras 12 pistas ha sido seleccionado para elevar tu nivel de juego al estándar internacional.
         </p>
       </div>

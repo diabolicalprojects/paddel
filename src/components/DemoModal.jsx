@@ -11,9 +11,9 @@ const DemoModal = () => {
       {/* Floating DEMO Button - Larger and Relocated */}
       <button 
         onClick={toggleModal}
-        className="fixed bottom-32 right-8 z-[90] bg-[#111] text-white border border-white/20 px-8 py-3.5 rounded-full font-display font-black text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-carbon transition-all duration-300 shadow-2xl group flex items-center gap-3"
+        className="fixed bottom-24 md:bottom-32 right-6 md:right-8 z-[90] bg-[#111] text-white border border-white/20 px-6 md:px-8 py-3 md:py-3.5 rounded-full font-display font-black text-xs md:text-sm uppercase tracking-[0.2em] hover:bg-white hover:text-carbon transition-all duration-300 shadow-2xl group flex items-center gap-3"
       >
-        <span className="w-2.5 h-2.5 bg-padel rounded-full animate-pulse"></span>
+        <span className="w-2 md:w-2.5 h-2 md:h-2.5 bg-padel rounded-full animate-pulse"></span>
         <span>DEMO</span>
       </button>
 
@@ -26,7 +26,7 @@ const DemoModal = () => {
           ></div>
           
           {/* Modal Content */}
-          <div className="relative w-full max-w-xl bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] animate-in zoom-in-95 duration-300">
+          <div className="relative w-full max-w-xl bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] animate-in zoom-in-95 duration-300 max-h-[90vh] overflow-y-auto no-scrollbar">
             {/* Top Pattern */}
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
             

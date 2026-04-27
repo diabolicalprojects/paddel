@@ -94,32 +94,32 @@ const Hero = () => {
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-end text-right">
-        <h1 className="flex flex-col items-end">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col items-center md:items-end text-center md:text-right">
+        <h1 className="flex flex-col items-center md:items-end">
           <span 
             ref={title1Ref} 
-            className="text-white font-body font-bold text-2xl md:text-4xl uppercase tracking-tighter mb-2 opacity-100 drop-shadow-md"
+            className="text-white font-body font-bold text-lg md:text-2xl lg:text-4xl uppercase tracking-widest md:tracking-tighter mb-2 opacity-100 drop-shadow-md"
           >
             CLUB DE PÁDEL AGUASCALIENTES
           </span>
           <span 
             ref={title2Ref} 
-            className="text-padel font-display font-black text-[4rem] md:text-7xl lg:text-[8rem] leading-[1] tracking-tighter"
+            className="text-padel font-display font-black text-5xl md:text-7xl lg:text-[8rem] leading-[0.9] md:leading-[1] tracking-tighter"
           >
             PÁDEL SIN<br/>LÍMITES
           </span>
         </h1>
         
-        <p className="mt-6 text-gray-200 font-body text-lg md:text-xl uppercase tracking-widest max-w-2xl hero-description">
+        <p className="mt-6 text-gray-200 font-body text-base md:text-lg lg:text-xl uppercase tracking-widest max-w-2xl hero-description">
           Olvida la rutina. Únete al club donde el mejor nivel de Aguascalientes se encuentra con el ambiente que estabas buscando. Tu próxima reta empieza aquí.
         </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-wrap justify-end gap-4 ctas-container">
+        <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-end gap-4 ctas-container w-full sm:w-auto">
           <a 
             href="#planes" 
             onClick={(e) => scrollToSection(e, '#planes')}
-            className="px-8 py-4 bg-transparent border border-white/20 text-white font-emphasis text-lg uppercase tracking-widest hover:bg-white hover:text-carbon transition-all duration-300 rounded-sm"
+            className="px-8 py-4 bg-transparent border border-white/20 text-white font-emphasis text-base md:text-lg uppercase tracking-widest hover:bg-white hover:text-carbon transition-all duration-300 rounded-sm text-center"
           >
             Conoce los Planes
           </a>
@@ -127,7 +127,7 @@ const Hero = () => {
             href="https://wa.me/524494361995" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-padel text-carbon font-emphasis text-lg uppercase tracking-widest hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] rounded-sm"
+            className="px-8 py-4 bg-padel text-carbon font-emphasis text-base md:text-lg uppercase tracking-widest hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:shadow-[0_0_30px_rgba(163,230,53,0.5)] rounded-sm text-center"
           >
             Reserva tu Cancha
           </a>

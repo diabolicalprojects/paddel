@@ -46,46 +46,46 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
   return (
     <div 
       ref={cardRef} 
-      className="h-[100dvh] w-full sticky top-0 flex items-center justify-center p-4 md:p-8 overflow-hidden"
+      className="min-h-[100dvh] md:h-[100dvh] w-full md:sticky top-0 flex items-center justify-center p-4 md:p-8 overflow-hidden bg-carbon"
       style={{ zIndex: index }}
     >
-      <div className="relative w-full h-full max-w-7xl mx-auto rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.05)] bg-carbon">
+      <div className="relative w-full h-full min-h-[600px] md:min-h-0 max-w-7xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.05)] bg-carbon">
         {/* Background Image with stronger overlay */}
         <div 
           className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-110"
           style={{ backgroundImage: `url(${image})` }}
         ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-carbon via-carbon/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-carbon via-carbon/60 md:via-carbon/40 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent"></div>
 
         {/* Content Grid */}
-        <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-end md:items-center p-8 md:p-20">
-          <div ref={contentRef} className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-12 h-[2px] bg-padel"></span>
-              <p className="text-padel font-emphasis uppercase tracking-[0.3em] font-bold text-sm md:text-base">{subtitle}</p>
+        <div className="relative z-10 h-full w-full flex flex-col md:flex-row items-center justify-end md:justify-start p-6 md:p-20">
+          <div ref={contentRef} className="max-w-2xl w-full">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
+              <span className="w-8 md:w-12 h-[2px] bg-padel"></span>
+              <p className="text-padel font-emphasis uppercase tracking-[0.2em] md:tracking-[0.3em] font-bold text-xs md:text-base">{subtitle}</p>
             </div>
             
-            <h2 className="text-6xl md:text-[10rem] font-display font-black uppercase text-white tracking-tighter leading-[0.8] mb-8 drop-shadow-2xl">
+            <h2 className="text-4xl md:text-6xl lg:text-[10rem] font-display font-black uppercase text-white tracking-tighter leading-[0.9] md:leading-[0.8] mb-6 md:mb-8 drop-shadow-2xl">
               {title}
             </h2>
             
-            <div className="glass-panel p-8 md:p-10 rounded-2xl border-l-4 border-l-padel max-w-xl">
-              <p className="text-gray-200 font-body text-lg md:text-xl leading-relaxed mb-6 italic">
+            <div className="glass-panel p-6 md:p-10 rounded-xl md:rounded-2xl border-l-4 border-l-padel max-w-xl">
+              <p className="text-gray-200 font-body text-base md:text-lg lg:text-xl leading-relaxed mb-4 md:mb-6 italic">
                 "{description}"
               </p>
               
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4 md:gap-6">
                 {children}
-                <span className="text-gray-500 font-mono text-sm tracking-widest uppercase">Sistema de Alto Rendimiento</span>
+                <span className="text-gray-500 font-mono text-[10px] md:text-sm tracking-widest uppercase">Sistema de Alto Rendimiento</span>
               </div>
             </div>
           </div>
         </div>
         
         {/* Decorative Index Number */}
-        <div className="absolute top-12 right-12 md:top-20 md:right-20 pointer-events-none opacity-10">
-          <span className="font-display font-black text-9xl md:text-[15rem] text-white">0{index + 1}</span>
+        <div className="absolute top-6 right-6 md:top-20 md:right-20 pointer-events-none opacity-10">
+          <span className="font-display font-black text-7xl md:text-[15rem] text-white">0{index + 1}</span>
         </div>
       </div>
     </div>

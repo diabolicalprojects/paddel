@@ -52,7 +52,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-stretch">
           {plans.map((plan, idx) => {
             const message = `¡Hola! 👋 Vengo de la página web de X3 Padel Club y me interesa recibir más información sobre el plan: ${plan.name} 🎾`;
             const whatsappLink = `https://api.whatsapp.com/send?phone=524494361995&text=${encodeURIComponent(message)}`;
@@ -60,9 +60,9 @@ const Pricing = () => {
             return (
               <div 
                 key={idx}
-                className={`relative rounded-xl overflow-hidden flex flex-col ${
+                className={`relative rounded-xl overflow-hidden flex flex-col transition-transform duration-500 ${
                   plan.highlighted 
-                    ? 'bg-carbon border-2 border-padel shadow-[0_0_30px_rgba(163,230,53,0.15)] transform md:-translate-y-4 md:scale-105 z-10' 
+                    ? 'bg-carbon border-2 border-padel shadow-[0_0_30px_rgba(163,230,53,0.15)] transform lg:-translate-y-4 lg:scale-105 z-10' 
                     : 'bg-[#151515] border border-[#333]'
                 }`}
               >

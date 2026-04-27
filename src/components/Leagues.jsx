@@ -3,7 +3,7 @@ import gsap from 'gsap';
 import { Trophy, Users, Star, Target, ArrowRight } from 'lucide-react';
 
 const LeagueCard = ({ title, desc, schedule, image, icon: Icon }) => (
-  <div className="group relative overflow-hidden rounded-2xl h-[500px] border border-white/5 flex flex-col justify-end p-8 transition-all duration-700 hover:border-padel/50">
+  <div className="group relative overflow-hidden rounded-2xl h-[450px] md:h-[500px] border border-white/5 flex flex-col justify-end p-6 md:p-8 transition-all duration-700 hover:border-padel/50">
     {/* Background Image */}
     <div 
       className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
@@ -11,30 +11,30 @@ const LeagueCard = ({ title, desc, schedule, image, icon: Icon }) => (
     ></div>
     
     {/* Overlays */}
-    <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/70 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
-    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/70 to-transparent opacity-90 md:opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+    <div className="absolute inset-0 bg-black/20 md:bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
     {/* Content */}
-    <div className="relative z-10 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg bg-padel flex items-center justify-center text-carbon shadow-[0_0_20px_rgba(163,230,53,0.3)]">
-          <Icon size={20} strokeWidth={2.5} />
+    <div className="relative z-10 translate-y-0 md:translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+      <div className="flex items-center gap-3 mb-3 md:mb-4">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-padel flex items-center justify-center text-carbon shadow-[0_0_20px_rgba(163,230,53,0.3)]">
+          <Icon size={18} md:size={20} strokeWidth={2.5} />
         </div>
-        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-padel">Inscripciones Abiertas</span>
+        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-padel">Inscripciones Abiertas</span>
       </div>
 
-      <h3 className="text-white font-display font-black text-3xl md:text-4xl uppercase tracking-tighter mb-4 leading-none">
+      <h3 className="text-white font-display font-black text-2xl md:text-4xl uppercase tracking-tighter mb-3 md:mb-4 leading-none">
         {title}
       </h3>
       
-      <div className="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 overflow-hidden transition-all duration-500 delay-100">
-        <p className="text-gray-300 font-body text-sm leading-relaxed mb-6">
+      <div className="max-h-40 md:max-h-0 opacity-100 md:opacity-0 group-hover:max-h-40 group-hover:opacity-100 overflow-hidden transition-all duration-500 delay-100">
+        <p className="text-gray-300 font-body text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
           {desc}
         </p>
         
-        <div className="flex items-center gap-2 mb-6 text-gray-400">
-          <div className="w-1.5 h-1.5 rounded-full bg-padel"></div>
-          <span className="text-[10px] font-bold uppercase tracking-widest">{schedule}</span>
+        <div className="flex items-center gap-2 mb-5 md:mb-6 text-gray-400">
+          <div className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-padel"></div>
+          <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest">{schedule}</span>
         </div>
       </div>
 
@@ -42,11 +42,11 @@ const LeagueCard = ({ title, desc, schedule, image, icon: Icon }) => (
         href="https://wa.me/524494361995"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-3 text-white font-black uppercase tracking-widest text-xs group/btn"
+        className="flex items-center gap-3 text-white font-black uppercase tracking-widest text-[10px] md:text-xs group/btn"
       >
         <span>Inscribirse ahora</span>
-        <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-padel group-hover/btn:border-padel group-hover/btn:text-carbon transition-all duration-300">
-          <ArrowRight size={14} />
+        <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:bg-padel group-hover/btn:border-padel group-hover/btn:text-carbon transition-all duration-300">
+          <ArrowRight size={12} md:size={14} />
         </div>
       </a>
     </div>
