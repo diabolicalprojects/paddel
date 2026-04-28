@@ -93,15 +93,15 @@ const Hero = () => {
           loop 
           playsInline
           preload="metadata"
-          poster="/tennis-paddles-balls-arrangement.jpg"
+          poster="/tennis-paddles-balls-arrangement.webp"
           className="absolute inset-0 w-full h-full object-cover hero-bg brightness-[0.4] contrast-[0.9]"
         >
-          <source src="/hero-padel-main.mp4" type="video/mp4" />
+          <source src="/nuevo-Hero-Padel-Main.mp4" type="video/mp4" />
         </video>
       ) : (
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center hero-bg brightness-[0.4] contrast-[0.9]"
-          style={{ backgroundImage: 'url("/tennis-paddles-balls-arrangement.jpg")' }}
+          style={{ backgroundImage: 'url("/tennis-paddles-balls-arrangement.webp")' }}
         ></div>
       )}
       

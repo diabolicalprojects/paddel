@@ -152,21 +152,21 @@ const Archive = () => {
       title: "Clase Mundial",
       subtitle: "01. Canchas",
       description: "12 pistas panorámicas listas para la acción. El escenario perfecto para quienes buscan calidad, velocidad y la mejor atmósfera de la ciudad.",
-      image: "/643516107_17954418798080688_5040464691383007529_n.jpg",
+      image: "/643516107_17954418798080688_5040464691383007529_n.webp",
       element: <BouncingBall />
     },
     {
       title: "Academia M3",
       subtitle: "02. Formación",
       description: "¿Vas empezando o quieres dominar el ranking? Nuestra Academia M3 tiene el método para que juegues con confianza desde el primer día. Técnica, estrategia y resultados reales.",
-      image: "/side-view-woman-holding-palette.jpg",
+      image: "/side-view-woman-holding-palette.webp",
       element: <LEDFlash />
     },
     {
       title: "Estilo de Vida",
       subtitle: "03. Comunidad",
       description: "Torneos, convivencias y las mejores \"retas\" de Aguascalientes. Aquí vienes por el deporte y te quedas por la comunidad. El plan ya está armado.",
-      image: "/657683641_17958842208080688_421451555995903500_n.jpg",
+      image: "/657683641_17958842208080688_421451555995903500_n.webp",
       element: <TrophyIcon />
     }
   ];

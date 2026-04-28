@@ -78,28 +78,28 @@ const Leagues = () => {
       title: "Liga Femenil",
       desc: "Comunidad y competencia para jugadoras que buscan elevar su nivel en el mejor ambiente social de Aguascalientes.",
       schedule: "Mar y Jue / 18:00 - 21:00",
-      image: "/652844074_17957073828080688_6601196828939359994_n.jpg",
+      image: "/652844074_17957073828080688_6601196828939359994_n.webp",
       icon: Users
     },
     {
       title: "Semillero Infantil",
       desc: "Formación técnica y valores para niños de 6 a 14 años. El futuro del pádel se construye hoy.",
       schedule: "Sábados / 09:00 - 12:00",
-      image: "/649230058_17955884292080688_4342328940489496649_n.jpg",
+      image: "/649230058_17955884292080688_4342328940489496649_n.webp",
       icon: Star
     },
     {
       title: "Categoría 2da & 3ra",
       desc: "Nivel semi-profesional para jugadores que buscan dominar el ranking y perfeccionar su táctica avanzada.",
       schedule: "Lun y Mié / 20:00 - 22:30",
-      image: "/641524589_17954418873080688_7503099926291076552_n.jpg",
+      image: "/641524589_17954418873080688_7503099926291076552_n.webp",
       icon: Target
     },
     {
       title: "Circuito PRO",
       desc: "La élite del pádel en el estado. Competencia de alta intensidad para jugadores de 1ra categoría.",
       schedule: "Viernes / 19:00 - 22:00",
-      image: "/643543019_17954418903080688_3696734017386928767_n.jpg",
+      image: "/643543019_17954418903080688_3696734017386928767_n.webp",
       icon: Trophy
     }
   ];

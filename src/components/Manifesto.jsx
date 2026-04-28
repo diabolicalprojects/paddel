@@ -55,7 +55,7 @@ const Manifesto = () => {
       <div 
         ref={bgRef}
         className="absolute inset-[-20%] w-[140%] h-[140%] bg-cover bg-center opacity-30 mix-blend-overlay"
-        style={{ backgroundImage: 'url("/high-angle-tired-woman-laying-ground.jpg")' }}
+        style={{ backgroundImage: 'url("/high-angle-tired-woman-laying-ground.webp")' }}
       ></div>
       
       {/* Noise Texture Override for this section */}
