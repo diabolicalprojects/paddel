@@ -51,10 +51,16 @@ const ArchiveCard = ({ title, subtitle, description, image, index, total, childr
     >
       <div className="relative w-full h-full min-h-[600px] md:min-h-0 max-w-7xl mx-auto rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[rgba(255,255,255,0.05)] bg-carbon">
         {/* Background Image with stronger overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 hover:scale-110"
-          style={{ backgroundImage: `url(${image})` }}
-        ></div>
+        {/* Optimized Image Loading */}
+        <div className="absolute inset-0 overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-110"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-carbon via-carbon/80 md:via-carbon/60 to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-carbon via-transparent to-transparent opacity-60 md:opacity-0"></div>
 

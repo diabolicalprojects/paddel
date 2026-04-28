@@ -48,6 +48,8 @@ const SocialGallery = () => {
               <img 
                 src={src} 
                 alt={`Club Life ${idx + 1}`} 
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-carbon/60 via-transparent to-transparent"></div>
