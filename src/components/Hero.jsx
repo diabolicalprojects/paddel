@@ -112,7 +112,7 @@ const Hero = () => {
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-24 md:pt-32 flex flex-col items-center md:items-end text-center md:text-right">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 pt-16 md:pt-24 flex flex-col items-center md:items-end text-center md:text-right">
         <h1 className="flex flex-col items-center md:items-end">
           <span 
             ref={title1Ref} 
